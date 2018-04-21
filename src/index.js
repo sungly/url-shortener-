@@ -1,4 +1,9 @@
+// 3-rd party imports 
+
 import express from "express";
 
-// es6 set up
-// https://www.codementor.io/iykyvic/writing-your-nodejs-apps-using-es6-6dh0edw2o
+const app = express(); 
+
+app.get("/", (req, res) => res.send("url shortener set up!"));
+
+app.listen(8080, () => console.log("Server starting on server 8080..."));
