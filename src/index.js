@@ -4,6 +4,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
+// local imports 
+
+import urlShortenerSchema from "./database/models/url_shortener";
+
 // connect go mongodb 
 
 const mongoURI = "mongodb://localhost/url-shortner";
