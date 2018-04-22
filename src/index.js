@@ -1,8 +1,28 @@
 // 3-rd party imports 
 
 import express from "express";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
+
+// connect go mongodb 
+
+const mongoURI = "mongodb://localhost/url-shortner";
+const connectionOptions = {
+  keepAlive: true,
+  reconnectTries: Number.MAX_VALUE
+}
+
+mongoose.Promise = global.Promise;
+mongoose.connect(mongoURI, connectionOptions, (error, db) => {
+  if (error) console.log("Error connecting to mongodb: ", error);
+  console.log("Connected to mongodb");
+})
 
 const app = express(); 
+
+// body-parser
+
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("url shortener set up!"));
 
